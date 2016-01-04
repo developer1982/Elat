@@ -10,7 +10,10 @@ import UIKit
 
 class NewsViewController: UIViewController {
 
-    override func viewDidLoad() {
+    
+    @IBOutlet var tb: UITableView!
+    
+        override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -20,7 +23,26 @@ class NewsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section:
+        Int) -> Int
+    {
+        return 3;
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        // Allocates a Table View Cell
+        let aCell =
+        self.tb.dequeueReusableCellWithIdentifier("CustomTableViewCell",
+            forIndexPath: indexPath) as! CustomTableViewCell
+        // Sets the text of the Label in the Table View Cell
+        aCell.detailLabel.text! = "dklgjalskdg";
+        aCell.img.image = UIImage(named: "app_icon(80)")
+        return aCell
+    }
 
     /*
     // MARK: - Navigation

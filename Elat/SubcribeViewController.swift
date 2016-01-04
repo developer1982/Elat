@@ -1,19 +1,39 @@
 //
-//  NewsDetailViewController.swift
+//  SubcribeViewController.swift
 //  Elat
 //
-//  Created by admin on 1/4/16.
+//  Created by admin on 1/3/16.
 //  Copyright © 2016 admin. All rights reserved.
 //
 
 import UIKit
 
-class NewsDetailViewController: UIViewController {
-
+class SubcribeViewController: UIViewController,UITextFieldDelegate {
+    
+    @IBOutlet weak var firstname: UITextField!
+    
+    @IBOutlet weak var lastname: UITextField!
+    
+    @IBOutlet weak var birthday: UITextField!
+    
+    @IBOutlet weak var phone: UITextField!
+    
+    @IBOutlet weak var emailaddress: UITextField!
+    
+    @IBOutlet weak var carnumber: UITextField!
+    
+    @IBOutlet weak var kilometers: UITextField!
+    
+    @IBOutlet weak var password: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // hide navigation bar
+        self.navigationController?.navigationBarHidden = true
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,13 +41,19 @@ class NewsDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func OnBackClick(sender: AnyObject) {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
+        
+    }
+   
+    @IBAction func OnBackBtnClick(sender: AnyObject) {
         if let navController = self.navigationController {
             navController.popViewControllerAnimated(true)
         }
     }
-   
-
     /*
     // MARK: - Navigation
 

@@ -8,19 +8,30 @@
 
 import UIKit
 
-class ConnectViewController: UIViewController {
-
+class ConnectViewController: UIViewController,UITextFieldDelegate {
+    
+    @IBOutlet weak var email_login: UITextField!
+    
+    @IBOutlet weak var password_login: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
+        
+    }
 
     /*
     // MARK: - Navigation
