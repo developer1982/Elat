@@ -8,6 +8,6 @@
 
 #ifndef Elat_Bridging_Header_h
 #define Elat_Bridging_Header_h
-
+#import <Parse/Parse.h>
 
 #endif /* Elat_Bridging_Header_h */

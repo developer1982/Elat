@@ -19,7 +19,13 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    //click "I am not a elat customer" button
+    @IBAction func OnNotButtonClick(sender: AnyObject) {
+        is_not = "Yes";
+        let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("tabbarview") as UIViewController
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
 
 }
 

@@ -8,7 +8,14 @@
 
 import UIKit
 
+// when user click "I am not a elat customer" button,is_not = 1,else 0
+var is_not = "No";
+
+var type = "revision";
+
 @UIApplicationMain
+
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -16,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        [Parse.enableLocalDatastore()];
+        
+        // Initialize Parse.
+        Parse.setApplicationId("WzLPZjkQ5CxWP4QU8LBD0DeEf5StWW2Xqd5mYJvY",
+            clientKey: "QE4nl9Ro4uhwkaTfVZenE8roTqMu1B5cHKK9lsVm")
+        
         return true
     }
 

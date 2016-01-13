@@ -10,6 +10,7 @@ import UIKit
 
 class NewsViewController: UIViewController {
 
+    var userArray : NSMutableArray = []
     
     @IBOutlet var tb: UITableView!
     
@@ -17,12 +18,30 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+            loadParseData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func loadParseData()
+    {
+        let query = PFQuery(className: "News")
+                
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error == nil {
+                for object in objects! {
+                      self.userArray.addObject(object)
+                    }
+                    self.tb.reloadData()
+            } else {
+                print("There is an error")
+            }
+        }
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
@@ -30,20 +49,59 @@ class NewsViewController: UIViewController {
     func tableView(tableView: UITableView, numberOfRowsInSection section:
         Int) -> Int
     {
-        return 3;
+        return self.userArray.count;
     }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
+        
         // Allocates a Table View Cell
         let aCell =
         self.tb.dequeueReusableCellWithIdentifier("CustomTableViewCell",
             forIndexPath: indexPath) as! CustomTableViewCell
         // Sets the text of the Label in the Table View Cell
-        aCell.detailLabel.text! = "dklgjalskdg";
-        aCell.img.image = UIImage(named: "app_icon(80)")
-        return aCell
-    }
+        
+        let row = indexPath.row
 
+        let title = userArray[row]["title"] as! String
+        let content = userArray[row]["content"] as! String
+//        let time = userArray[row]["updatedAt"] as! string
+        let pfimage = userArray[row]["image"] as! PFFile
+
+        pfimage.getDataInBackgroundWithBlock({
+            (result, error) in
+            
+            aCell.img.image = UIImage(data: result!)
+       })
+        
+    
+        aCell.title.text = title
+        aCell.detailLabel.text = content
+        
+        return aCell
+        
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let indexPath : NSIndexPath = self.tb.indexPathForSelectedRow!
+        
+        let destViewController = segue.destinationViewController as! NewsDetailViewController
+        
+        destViewController.userArray  = userArray
+        destViewController.row = indexPath.row
+//        destViewController.titletxt = userArray[indexPath.row]["title"] as! String
+//        destViewController.contenttxt = userArray[indexPath.row]["content"] as! String
+//        destViewController.timetxt = userArray[row]["content"] as! String
+//        destViewController.imagedata = userArray[indexPath.row]["image"] as! PFFile
+//         print(pfimage)
+//        pfimage.getDataInBackgroundWithBlock({
+//            (result, error) in
+//            destViewController.imagedata = UIImage(data: result!)!
+//        })
+    }
+    
     /*
     // MARK: - Navigation
 
