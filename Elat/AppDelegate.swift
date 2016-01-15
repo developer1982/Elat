@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 // when user click "I am not a elat customer" button,is_not = 1,else 0
 var is_not = "No";
 
@@ -19,7 +19,7 @@ var type = "revision";
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var locationManager: CLLocationManager?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("WzLPZjkQ5CxWP4QU8LBD0DeEf5StWW2Xqd5mYJvY",
             clientKey: "QE4nl9Ro4uhwkaTfVZenE8roTqMu1B5cHKK9lsVm")
         
+        locationManager = CLLocationManager()
+        locationManager?.requestWhenInUseAuthorization()
+    
         return true
     }
 

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		847473A01C44DEAB0037EF70 /* service_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 8474739F1C44DEAB0037EF70 /* service_title.png */; };
 		847473A21C44E8C90037EF70 /* ServiceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847473A11C44E8C90037EF70 /* ServiceDetailViewController.swift */; };
+		847473A51C4628C50037EF70 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847473A41C4628C50037EF70 /* ListViewController.swift */; };
+		847473A71C462AF00037EF70 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847473A61C462AF00037EF70 /* ListTableViewCell.swift */; };
+		847473AF1C464C550037EF70 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847473AE1C464C550037EF70 /* MapKit.framework */; };
+		847473B11C464D370037EF70 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847473B01C464D370037EF70 /* MapViewController.swift */; };
+		847473BD1C478A720037EF70 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847473BC1C478A720037EF70 /* ListDetailViewController.swift */; };
 		8474AD981C39CD5F005AC20B /* app_icon(58).png in Resources */ = {isa = PBXBuildFile; fileRef = 8474AD931C39CD5F005AC20B /* app_icon(58).png */; };
 		8474AD991C39CD5F005AC20B /* app_icon(80).png in Resources */ = {isa = PBXBuildFile; fileRef = 8474AD941C39CD5F005AC20B /* app_icon(80).png */; };
 		8474AD9A1C39CD5F005AC20B /* app_icon(87).png in Resources */ = {isa = PBXBuildFile; fileRef = 8474AD951C39CD5F005AC20B /* app_icon(87).png */; };
@@ -79,6 +84,11 @@
 /* Begin PBXFileReference section */
 		8474739F1C44DEAB0037EF70 /* service_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = service_title.png; path = Image/service_title.png; sourceTree = SOURCE_ROOT; };
 		847473A11C44E8C90037EF70 /* ServiceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceDetailViewController.swift; sourceTree = "<group>"; };
+		847473A41C4628C50037EF70 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		847473A61C462AF00037EF70 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		847473AE1C464C550037EF70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		847473B01C464D370037EF70 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		847473BC1C478A720037EF70 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		8474AD931C39CD5F005AC20B /* app_icon(58).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app_icon(58).png"; path = "Image/app_icon(58).png"; sourceTree = SOURCE_ROOT; };
 		8474AD941C39CD5F005AC20B /* app_icon(80).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app_icon(80).png"; path = "Image/app_icon(80).png"; sourceTree = SOURCE_ROOT; };
 		8474AD951C39CD5F005AC20B /* app_icon(87).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app_icon(87).png"; path = "Image/app_icon(87).png"; sourceTree = SOURCE_ROOT; };
@@ -162,6 +172,7 @@
 				8474ADF71C3BD9EA005AC20B /* libsqlite3.tbd in Frameworks */,
 				8474ADF51C3BD378005AC20B /* SystemConfiguration.framework in Frameworks */,
 				8474ADF31C3BD36D005AC20B /* StoreKit.framework in Frameworks */,
+				847473AF1C464C550037EF70 /* MapKit.framework in Frameworks */,
 				8474ADF11C3BD362005AC20B /* Security.framework in Frameworks */,
 				8474ADEF1C3BD359005AC20B /* QuartzCore.framework in Frameworks */,
 				8474ADED1C3BD350005AC20B /* MobileCoreServices.framework in Frameworks */,
@@ -177,9 +188,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		847473A81C462AF40037EF70 /* list */ = {
+			isa = PBXGroup;
+			children = (
+				847473A41C4628C50037EF70 /* ListViewController.swift */,
+				847473A61C462AF00037EF70 /* ListTableViewCell.swift */,
+				847473BC1C478A720037EF70 /* ListDetailViewController.swift */,
+			);
+			name = list;
+			sourceTree = "<group>";
+		};
+		847473A91C462AFD0037EF70 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				847473B01C464D370037EF70 /* MapViewController.swift */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		847473AA1C4645BE0037EF70 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				84E4AF311C3D67CA00E963F0 /* ServiceViewController.swift */,
+				847473A11C44E8C90037EF70 /* ServiceDetailViewController.swift */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		847473AB1C4645CC0037EF70 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				8474ADCE1C3BC03A005AC20B /* TabBarViewController.swift */,
+				8474AE091C3BDE30005AC20B /* Elat-Bridging-Header.h */,
+			);
+			name = other;
+			sourceTree = "<group>";
+		};
 		8474ADDF1C3BD2D8005AC20B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				847473AE1C464C550037EF70 /* MapKit.framework */,
 				8474ADF81C3BD9F6005AC20B /* libz.tbd */,
 				8474ADF61C3BD9EA005AC20B /* libsqlite3.tbd */,
 				8474ADF41C3BD378005AC20B /* SystemConfiguration.framework */,
@@ -308,8 +356,9 @@
 		8479B0DE1C41FB6900C1AC76 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				84E4AF311C3D67CA00E963F0 /* ServiceViewController.swift */,
-				847473A11C44E8C90037EF70 /* ServiceDetailViewController.swift */,
+				847473AA1C4645BE0037EF70 /* main */,
+				847473A91C462AFD0037EF70 /* map */,
+				847473A81C462AF40037EF70 /* list */,
 			);
 			name = service;
 			sourceTree = "<group>";
@@ -379,8 +428,7 @@
 				8479B0DE1C41FB6900C1AC76 /* service */,
 				8479B0DC1C41FB3C00C1AC76 /* news */,
 				8479B0DD1C41FB6000C1AC76 /* profile */,
-				8474ADCE1C3BC03A005AC20B /* TabBarViewController.swift */,
-				8474AE091C3BDE30005AC20B /* Elat-Bridging-Header.h */,
+				847473AB1C4645CC0037EF70 /* other */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -421,6 +469,11 @@
 					84D3BC7E1C3968000000989B = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = DGV3R3XRC9;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -553,15 +606,19 @@
 			files = (
 				8474ADB41C3AA46D005AC20B /* NewsDetailViewController.swift in Sources */,
 				8474ADA81C3A6314005AC20B /* ProfileViewController.swift in Sources */,
+				847473A51C4628C50037EF70 /* ListViewController.swift in Sources */,
 				84D3BCC71C396E190000989B /* SubcribeViewController.swift in Sources */,
 				84D3BC851C3968000000989B /* ViewController.swift in Sources */,
 				8474ADCF1C3BC03A005AC20B /* TabBarViewController.swift in Sources */,
 				847473A21C44E8C90037EF70 /* ServiceDetailViewController.swift in Sources */,
 				8474ADAE1C3A79A4005AC20B /* CustomTableViewCell.swift in Sources */,
 				84D3BC831C3968000000989B /* AppDelegate.swift in Sources */,
+				847473BD1C478A720037EF70 /* ListDetailViewController.swift in Sources */,
 				8474ADA01C3A1B5B005AC20B /* NewsViewController.swift in Sources */,
 				84E4AF321C3D67CA00E963F0 /* ServiceViewController.swift in Sources */,
+				847473A71C462AF00037EF70 /* ListTableViewCell.swift in Sources */,
 				84D3BCE01C39BC2D0000989B /* ConnectViewController.swift in Sources */,
+				847473B11C464D370037EF70 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

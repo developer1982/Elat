@@ -10,6 +10,13 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imagefield: UIImageView!
+    @IBOutlet weak var titlefield: UILabel!
+    @IBOutlet weak var contentfield: UILabel!
+    @IBOutlet weak var distance: UILabel!
+
+    
+//    @IBOutlet weak var ratingcontrol: RatingControl!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

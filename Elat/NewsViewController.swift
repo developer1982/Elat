@@ -29,7 +29,7 @@ class NewsViewController: UIViewController {
     func loadParseData()
     {
         let query = PFQuery(className: "News")
-                
+        query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
                 for object in objects! {
@@ -63,10 +63,12 @@ class NewsViewController: UIViewController {
         // Sets the text of the Label in the Table View Cell
         
         let row = indexPath.row
-
         let title = userArray[row]["title"] as! String
         let content = userArray[row]["content"] as! String
-//        let time = userArray[row]["updatedAt"] as! string
+//        NSDate; *updated = [userArray[row] updatedAt];
+//        let elapsedTime = NSDate().timeIntervalSinceDate(time)
+//        print(time)
+//        print(elapsedTime)
         let pfimage = userArray[row]["image"] as! PFFile
 
         pfimage.getDataInBackgroundWithBlock({
@@ -91,15 +93,6 @@ class NewsViewController: UIViewController {
         
         destViewController.userArray  = userArray
         destViewController.row = indexPath.row
-//        destViewController.titletxt = userArray[indexPath.row]["title"] as! String
-//        destViewController.contenttxt = userArray[indexPath.row]["content"] as! String
-//        destViewController.timetxt = userArray[row]["content"] as! String
-//        destViewController.imagedata = userArray[indexPath.row]["image"] as! PFFile
-//         print(pfimage)
-//        pfimage.getDataInBackgroundWithBlock({
-//            (result, error) in
-//            destViewController.imagedata = UIImage(data: result!)!
-//        })
     }
     
     /*

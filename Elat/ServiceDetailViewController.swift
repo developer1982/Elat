@@ -10,11 +10,15 @@ import UIKit
 
 class ServiceDetailViewController: UIViewController {
 
-    @IBOutlet weak var cont: UISegmentedControl!
+    @IBOutlet weak var segControl: UISegmentedControl!
+    @IBOutlet weak var listview: UIView!
+    @IBOutlet weak var mapview: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        listview.hidden = false
+        mapview.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +33,17 @@ class ServiceDetailViewController: UIViewController {
     }
 
     @IBAction func OnSegChanged(sender: AnyObject) {
+        switch segControl.selectedSegmentIndex
+            {
+        case 0:
+            listview.hidden = false
+            mapview.hidden = true
+        case 1:
+            listview.hidden = true
+            mapview.hidden = false
+        default:
+            break;
+        }
     }
     /*
     // MARK: - Navigation

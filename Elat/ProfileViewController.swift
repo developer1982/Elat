@@ -86,7 +86,41 @@ class ProfileViewController: UIViewController {
         }
     
     }
-    /*
+    
+    func updatekilometers(){
+        print("sss")
+    }
+
+    @IBAction func OnUpdateButtonClick(sender: AnyObject) {
+        let alert = UIAlertController(title: "Update", message: "Kilometers Update", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = "Enter kilometer:"
+            })
+        
+        alert.addAction(UIAlertAction(title: "ok", style: .Default){(_) in
+                let nameTextField = alert.textFields![0]
+                self.updatekilometers(nameTextField.text!)
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func updatekilometers(kilometers : String){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    // 1
+        self.kilometersfield.text = kilometers + " Km"
+    // 2
+        if let currentUser = PFUser.currentUser(){
+            currentUser["kilometers"] = kilometers
+            //set other fields the same way....
+            currentUser.saveInBackground()
+        }
+    }
+
+
+
+        /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
